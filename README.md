@@ -1,7 +1,3 @@
-Below is an updated README for the organization, highlighting the two key projects:
-
----
-
 # Qubic-Qulang
 
 Qubic-Qulang is an organization dedicated to building a decentralized marketplace for AI inference powered by Qubic technology. Our ecosystem combines smart contracts, blockchain-based payments, and modern web interfaces to empower anyone to become an AI provider and for users to access AI inference services using Qubic tokens.
@@ -58,6 +54,3 @@ For questions, feedback, or collaboration proposals, please reach out via our Gi
 
 All projects in the Qubic-Qulang organization are released under the [Anti-Military License](./LICENSE.md).
 
----
-
-This README emphasizes our main dApp (qulang-app) along with the example-openai-provider, providing clear access URLs and descriptions of their functionalities.
