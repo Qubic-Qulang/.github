@@ -1,4 +1,4 @@
-![Banner](../qulang-banner-rounded.png)
+![Banner](./qulang-banner-rounded.png)
 
 ---
 
