@@ -3,8 +3,8 @@
 ---
 
 <div align="center">
-  Try the dApp and playground at [http://46.17.103.110:3000/](http://46.17.103.110:3000/) !  
-  You can use a private seed such as `kexrupgtmbmwwzlcpqccemtgvolpzqezybmgaedaganynsnjijfyvcn`.
+  Try the dApp and playground at http://46.17.103.110:3000/ !  
+  You can use a private seed such as kexrupgtmbmwwzlcpqccemtgvolpzqezybmgaedaganynsnjijfyvcn.
 </div>
 
 ---
