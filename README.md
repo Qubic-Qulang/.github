@@ -1,6 +1,9 @@
-# Qubic-Qulang
+![Banner](./qulang-banner-rounded.png)
 
-Qubic-Qulang is an organization dedicated to building a decentralized marketplace for AI inference powered by Qubic technology. Our ecosystem combines smart contracts, blockchain-based payments, and modern web interfaces to empower anyone to become an AI provider and for users to access AI inference services using Qubic tokens.
+QuLang is bringing together AI builders accross the _qubic_ blockchain. It's goal is to allow Large Language Models (LLM) inference through 
+
+
+is a platform aiming at buorganization dedicated to building a decentralized marketplace for AI inference powered by Qubic technology. Our ecosystem combines smart contracts, blockchain-based payments, and modern web interfaces to empower anyone to become an AI provider and for users to access AI inference services using Qubic tokens.
 
 ## Key Projects
 
