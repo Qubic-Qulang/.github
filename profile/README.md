@@ -23,6 +23,8 @@ The AI provider receives a credit of $D \times (1 - r_{\text{burn}})$, and the r
 
 *Important note:* Some features, particularly security measures and exception handling, are not yet fully developed.
 
+![flowchart](../map.png)
+
 ## Projects
 
 ### 1. core (Node and Smart Contract)
