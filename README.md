@@ -1,59 +1,45 @@
-![Banner](./qulang-banner-rounded.png)
+![Banner](../qulang-banner-rounded.png)
 
-QuLang is bringing together AI builders accross the _qubic_ blockchain. It's goal is to allow Large Language Models (LLM) inference through 
+---
 
+<div align="center">
+  Try the dApp and playground at [http://46.17.103.110:3000/](http://46.17.103.110:3000/) !  
+  You can use a private seed such as `kexrupgtmbmwwzlcpqccemtgvolpzqezybmgaedaganynsnjijfyvcn`.
+</div>
 
-is a platform aiming at buorganization dedicated to building a decentralized marketplace for AI inference powered by Qubic technology. Our ecosystem combines smart contracts, blockchain-based payments, and modern web interfaces to empower anyone to become an AI provider and for users to access AI inference services using Qubic tokens.
+---
 
-## Key Projects
+QuLang brings together AI builders across the _Qubic_ blockchain. Its goal is to enable decentralized inference of Large Language Models (LLMs) and AI Agents. Here's how it works:
 
-### 1. qulang-app (Main dApp)
-- **URL:** [http://46.17.103.110:3000/](http://46.17.103.110:3000/)
-- **Description:**  
-  The qulang-app is our primary decentralized application, providing a modern, responsive interface for interacting with the Qubic smart contracts. Users can easily connect their wallets, view balances, top up accounts, and initiate AI inference requests.  
-- **Features:**  
-  - Multi-wallet connection (e.g., MetaMask, private seed, vault file)
-  - Real-time transaction monitoring and balance updates
-  - Seamless interaction with on-chain smart contracts for account management and payments
+- Users can top up their QuLang accounts through the smart contract (`procedure TopUp, 1`) and withdraw their balance using the same mechanism (`procedure Withdraw, 2`).
 
-### 2. example-openai-provider
-- **API URL:** [http://46.17.103.110:3001/](http://46.17.103.110:3001/)
-- **Chatbot Playground:** [http://46.17.103.110:3001/debug](http://46.17.103.110:3001/debug)
-- **Description:**  
-  This Next.js application serves as a demonstration of how an AI provider can register on our marketplace. The API exposes model information such as provider name, image, and description from environment variables. It also features a playground with a chatbot for testing and debugging AI inference.
-- **Features:**  
-  - Simple API for retrieving provider details
-  - Chatbot playground to interact with the AI model
-  - Automated deployment setup with Docker and GitHub Actions
+- Providers can register endpoints for LLM inference following the [Vercel AI SDK UI](https://sdk.vercel.ai/docs/ai-sdk-ui/overview) standard (an example is available in the [`example-openai-provider`](https://github.com/Qubic-Qulang/example-openai-provider) repository). The endpoints are stored in a centralized PostgreSQL database, while pricing (input token price, output token price) and burn rate parameters are managed by the smart contract (`procedure updateProvider, 3`).
 
-## Organization Overview
+- Inference transactions are validated through a main endpoint. Users with sufficient QuLang balances are debited an amount calculated by:
 
-Our ecosystem consists of:
+$$ D = n_{\text{input token}} \times p_{\text{input token}} + n_{\text{output token}} \times p_{\text{output token}} $$
 
-- **On-chain Smart Contracts (HM25):**  
-  Developed in C++ using Qubic’s framework, these smart contracts manage user balances, provider registrations, and AI inference transactions. They include functions like Topup, Withdraw, and ProcessRequest with a built-in fee and burn mechanism.
+The AI provider receives a credit of $D \times (1 - r_{\text{burn}})$, and the remaining amount $r_{\text{burn}} \times D$ is either burned or credited to the contract’s shares.
 
-- **Decentralized Infrastructure:**  
-  Qubic’s node software, compiled in EFI, enforces blockchain transactions and wallet management. The system is designed for scalability (supporting up to 2^20 users) and real-time processing.
+*Important note:* Some features, particularly security measures and exception handling, are not yet fully developed.
 
-- **Centralized Services via dApp:**  
-  Our main dApp (qulang-app) acts as the primary interface for users and providers. It handles connection management, real-time transaction tracking, and serves as the hub for AI inference interactions, while a PostgreSQL database stores supplementary information such as detailed model data and endpoints.
+## Projects
 
-## How to Contribute
+### 1. core (Node and Smart Contract)
 
-We welcome contributions from the community. To contribute:
+A fork of the Qubic node with our smart contract implementation.  
+- **Code:** [https://github.com/Qubic-Qulang/core/blob/madrid-2025/src/contracts/HM25.h](https://github.com/Qubic-Qulang/core/blob/madrid-2025/src/contracts/HM25.h)  
+- **Node endpoint:** [http://46.17.103.110:31841/](http://46.17.103.110:31841/)  
+- **RPC endpoint:** [http://46.17.103.110/v1/tick-info](http://46.17.103.110/v1/tick-info)
 
-1. Fork a repository and create a feature branch.
-2. Make your changes and submit a pull request.
-3. Follow our coding guidelines and include tests where applicable.
+### 2. qulang-app (Main dApp)
 
-For detailed contribution guidelines, please refer to the [Contributing Documentation](./doc/contributing.md).
+- **URL:** [http://46.17.103.110:3000/](http://46.17.103.110:3000/)  
+- **Repository:** [https://github.com/Qubic-Qulang/qulang-app](https://github.com/Qubic-Qulang/qulang-app)
 
-## Contact
+### 3. example-openai-provider
 
-For questions, feedback, or collaboration proposals, please reach out via our GitHub issue tracker or join our community on Discord.
+- **Endpoint instance:** [http://46.17.103.110:3001/](http://46.17.103.110:3001/)  
+- **Repository:** [https://github.com/Qubic-Qulang/example-openai-provider](https://github.com/Qubic-Qulang/example-openai-provider)
 
-## License
-
-All projects in the Qubic-Qulang organization are released under the [Anti-Military License](./LICENSE.md).
-
+This Next.js application demonstrates how AI providers can register with the QuLang marketplace. The API exposes model details (provider name, image, and description) via environment variables. It also includes a playground chatbot interface for easy testing and debugging of AI inference.
