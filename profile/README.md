@@ -44,4 +44,7 @@ A fork of the Qubic node with our smart contract implementation.
 - **Endpoint instance:** [http://46.17.103.110:3001/](http://46.17.103.110:3001/)  
 - **Repository:** [https://github.com/Qubic-Qulang/example-openai-provider](https://github.com/Qubic-Qulang/example-openai-provider)
 
-This Next.js application demonstrates how AI providers can register with the QuLang marketplace. The API exposes model details (provider name, image, and description) via environment variables. It also includes a playground chatbot interface for easy testing and debugging of AI inference.
+## Next Steps / Roadmap
+
+The next steps include finishing developpment of core features, and IPO/share system value. Then, we may look into more complex integrations for AI agents. 
+We also wish to explore putting some quantized providers directly on the computor node, in order to have an inference endpoint in the chain itself.
